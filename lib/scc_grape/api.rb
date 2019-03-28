@@ -4,6 +4,10 @@ require 'scc_ruby'
 module SccGrape
   class API < Grape::API
 
+    http_basic do |username, password|
+      { ENV['SCC_USERNAME'] => ENV['SCC_PASSWORD'] }[username] == password
+    end
+
     get :refresh do
       SccGrape::API.reload_config
       API.logger.info '$cloud_env has been reloaded from spring cloud config server'

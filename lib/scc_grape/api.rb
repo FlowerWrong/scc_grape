@@ -18,7 +18,13 @@ module SccGrape
     end
 
     def self.reload_config
-      $cloud_env = SccRuby::Api.fetch(ENV['CONFIG_SERVER_URL'], ENV['APP_NAME'], ENV['APP_ENV'])
+      if ENV['CONFIG_SERVER_URL'].blank?
+        puts 'No CONFIG_SERVER_URL provided, scc_rails will not fetch config from spring cloud config server'
+      elsif ENV['APP_NAME'].blank?
+        puts 'No APP_NAME provided, scc_rails will not fetch config from spring cloud config server'
+      else
+        $cloud_env = SccRuby::Api.fetch(ENV['CONFIG_SERVER_URL'], ENV['APP_NAME'], ENV['APP_ENV'] || 'default', ENV['CLOUD_USERNAME'] || '', ENV['CLOUD_PASSWORD'] || '')
+      end
     end
   end
 end

@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    scc_grape (0.1.0)
+    scc_grape (0.1.2)
       grape (~> 1.2)
       scc_ruby (~> 0.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.2.1)
+    activesupport (5.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -42,7 +42,7 @@ GEM
     rack-accept (0.4.5)
       rack (>= 0.4)
     rake (10.5.0)
-    scc_ruby (0.1.1)
+    scc_ruby (0.1.2)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
